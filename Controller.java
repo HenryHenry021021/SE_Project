@@ -19,28 +19,28 @@ public class Controller {
         // this.locations = model
     }
 
-    public void addToLocation(String[] labels, int[] functionData, int[] rent, String[] types, Scanner scanner) {
+    public void addToLocation(String[] labels, int[] functionData, int[] rent, String[] types, int[] locationIndexs,Scanner scanner) {
         for (int i = 0; i < labels.length; i++) {
             if (types[i].equals("Rent")) {
-                model.addToLocations(new RentLocation(labels[i], i, functionData[i], rent[i], scanner));
+                model.addToLocations(new RentLocation(labels[i], locationIndexs[i], functionData[i], rent[i], scanner));
 
             } else if (types[i].equals("Special")) {
-                model.addToLocations(new GoLocation(labels[i], i));
+                model.addToLocations(new GoLocation(labels[i], locationIndexs[i]));
 
             } else if (types[i].equals("Tax")) {
-                model.addToLocations(new TaxLocation(labels[i], i, functionData[i], scanner));
+                model.addToLocations(new TaxLocation(labels[i], locationIndexs[i], functionData[i], scanner));
 
             } else if (types[i].equals("Chance")) {
-                model.addToLocations(new ChanceLocation(labels[i], i, scanner));
+                model.addToLocations(new ChanceLocation(labels[i], locationIndexs[i], scanner));
 
             } else if (types[i].equals("In Jail")) {
-                model.addToLocations(new InJailLocation(labels[i], i, scanner));
+                model.addToLocations(new InJailLocation(labels[i], locationIndexs[i], scanner));
 
             } else if (types[i].equals("GO Jail")) {
-                model.addToLocations(new GoToJailLocation(labels[i], i, model.getLocations(), scanner));
+                model.addToLocations(new GoToJailLocation(labels[i], locationIndexs[i], model.getLocations(), scanner));
 
             } else if (types[i].equals("Free Parking")) {
-                model.addToLocations(new ParkingLocation(labels[i], i));
+                model.addToLocations(new ParkingLocation(labels[i], locationIndexs[i]));
 
             }
         }
@@ -72,7 +72,7 @@ public class Controller {
         double[] random = new double[2];
         int jailRestirction = 0;
         printBoard();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 100; i++) {
             for (Player player : players) {
                 if (player.getProperty() < 0) {
                     continue;
@@ -85,10 +85,10 @@ public class Controller {
 
                 } else {
 
-                    InJailLocation jail = null;
+                    Location jail = null;
                     for (Location location : locations) {
-                        if (player.getLocationIndex() == location.getLocationIndex()) {
-                            jail = (InJailLocation) location;
+                        if (player.getLocationIndex() == location.getLocationIndex() && location instanceof InJailLocation) {
+                            jail = (InJailLocation)location;
                             break;
                         }
                     }
@@ -139,6 +139,9 @@ public class Controller {
                     }
 
                 }
+
+
+
                 playerCurrentLocationIndex = player.getLocationIndex();
                 if ((playerCurrentLocationIndex + (int) (random[0] + random[1])) >= 20) {
                     player.addProperty(1500);
@@ -221,10 +224,10 @@ public class Controller {
          */
         double[] randomNum = new double[2];
 
-        //randomNum[0] = 2;
-        //randomNum[1] = 2;
-        randomNum[0] = (int) (Math.random() * 6) + 1;
-        randomNum[1] = (int) (Math.random() * 6) + 1;
+        randomNum[0] = 7;
+        randomNum[1] = 8;
+       // randomNum[0] = (int) (Math.random() * 6) + 1;
+        //randomNum[1] = (int) (Math.random() * 6) + 1;
         System.out.println("First dice number is " + (int) randomNum[0]);
         System.out.println("Second dice number is " + (int) randomNum[1] );
         System.out.println("Total step: "+((int)(randomNum[0]+randomNum[1]))+"\n");

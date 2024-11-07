@@ -3,30 +3,23 @@ import java.util.Scanner;
 public class RentLocation extends Location {
 	protected int price;
 	protected int rent;
-	protected Player owner;
-
+	
 	public RentLocation(String locationName, int locationIndex, int price, int rent, Scanner scanner) {
 		super(locationName, locationIndex, scanner);
 
 		this.price = price;
 		this.rent = rent;
-		owner = null;
-
 	}
 
-	// @Override
+	
+
+	@Override
 	public String toString() {
-		/*
-		 * return locationName + " " + getPlayerList() + rent + " *owner"
-		 * + (owner != null ? owner.getPlayerName() : "No person");
-		 */
-
-		String printMessage = locationName + " ---owner:"
-				+ (owner != null ? owner.getPlayerName() + "," : "No--- ");
-
-		if (!getPlayerList().equals("")) {
-			printMessage += "***" + getPlayerList() + "***";
-		}
+	
+		String printMessage=locationName;
+		/*if(owner!=null){
+			printMessage+=", Owner:"+owner.getPlayerName();
+		}*/
 		return printMessage;
 	}
 

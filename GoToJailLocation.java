@@ -14,7 +14,7 @@ public class GoToJailLocation extends Location {
         for (int i = 0; i < locations.size(); i++) {
             Location location = locations.get(i);
             if (location instanceof InJailLocation) {
-                player.setlocationIndex(i);
+                player.setlocationIndex(location.getLocationIndex());
                 removePlayer(player);
                 location.addPlayer(player);
                 player.setjailRestirction(3);

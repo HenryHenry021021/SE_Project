@@ -6,7 +6,13 @@ public class Model {
 
         public void addToPlayers(Player player){
             players.add(player);
-            locations.get(0).addPlayer(player);;
+
+            for (Location location : locations) {
+                if(location.getLocationIndex()==player.getLocationIndex()){
+                    location.addPlayer(player);
+
+                }
+            }
         }
 
         public void addToLocations(Location location){

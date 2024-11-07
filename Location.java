@@ -3,6 +3,7 @@ import java.util.*;
 public abstract class Location {
 	protected String locationName;
 	protected int locationIndex;
+	protected Player owner;
 
 	Scanner scanner;
 	ArrayList<Player> players = new ArrayList<Player>();
@@ -10,7 +11,7 @@ public abstract class Location {
 	public Location(String locationName, int locationIndex, Scanner scanner) {
 		this.locationName = locationName;
 		this.locationIndex = locationIndex;
-
+		owner = null;
 		this.scanner = scanner;
 
 	}
@@ -31,14 +32,15 @@ public abstract class Location {
 		this.locationIndex = locationIndex;
 	}
 
-	
 	public String toString() {
-		//return locationName + " " + getPlayerList();
+		// return locationName + " " + getPlayerList();
 		String printMessage = locationName;
 
-		if(!getPlayerList().equals("")){
-			printMessage+="  ***"+getPlayerList()+"***";
-		}
+		/*
+		 * if(!getPlayerList().equals("")){
+		 * printMessage+="  ***"+getPlayerList()+"***";
+		 * }
+		 */
 		return printMessage;
 	}
 
@@ -72,6 +74,14 @@ public abstract class Location {
 		}
 		// System.out.print(playerList);
 		return playerList;
+	}
+
+	public String getOwnerName() {
+		String printMessage = "";
+		if (owner != null) {
+			printMessage += "Owner: " + owner.getPlayerName();
+		}
+		return printMessage;
 	}
 
 	public abstract String locationFunction(Player player);
