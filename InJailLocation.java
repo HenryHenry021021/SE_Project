@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-public class InJailLocation extends Location {
-
-    public InJailLocation(String locationName, int locationIndex){
-        super(locationName,locationIndex,null);
-    }
-
-    public  void locationFunction(Player player){
-        
-    }
-=======
 import java.util.Scanner;
 
 public class InJailLocation extends Location {
@@ -20,7 +9,9 @@ public class InJailLocation extends Location {
     public String locationFunction(Player player) {
         int jailRestirction = player.getjailRestirction();
         String action = "";
-        if (jailRestirction == 1) {
+        if(jailRestirction==0){
+
+        }else if (jailRestirction == 1) {
             System.out.println(player.getPlayerName()+", this is your last turns in jail, you must pay HKD 150 fine, then you can immediate moves forward.");
             System.out.println("Enter Y to pay: ");
 
@@ -48,5 +39,4 @@ public class InJailLocation extends Location {
 
         return action;
     }
->>>>>>> c8ee6ec (jail successful)
 }

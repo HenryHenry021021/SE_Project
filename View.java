@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-import java.util.ArrayList;
-
-public class View {
-    
-    public void showLocations(ArrayList<Location> locations) {
-        for (Location location : locations) {
-            System.out.println(location);
-        }
-    }
-
-    public void showPlayers(ArrayList<Player> players) {
-        for (Player player : players) {
-            System.out.println(player);
-        }
-    }
-
-    public void printBoard(ArrayList<Location> locations, ArrayList<Player> players){
-        showLocations(locations);
-        System.out.println("--------------------------------");
-        System.out.println("--------------------------------");
-        System.out.println("Player status:");
-        showPlayers(players);
-    }
-
-    public void throwDiceMessage(String name){
-        System.out.print(name + " please press any key to roll the dice:");
-    }
-=======
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -95,6 +66,20 @@ public class View {
         return action;
     }
 
+    public void printWinnerMessage(ArrayList<Player> winners){
+
+        String winnerMessage = "Congratulations,";
+        for (int i = 0; i < winners.size(); i++) {
+            Player winner = winners.get(i);
+
+            if (i == winners.size() - 1) {
+                winnerMessage+=winner.getPlayerName()+", win the game";
+            } else {
+                winnerMessage+=winner.getPlayerName()+", ";
+            }
+        }
+
+        System.out.println(winnerMessage);
+    }
     
->>>>>>> c8ee6ec (jail successful)
 }
