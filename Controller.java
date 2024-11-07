@@ -221,12 +221,13 @@ public class Controller {
          */
         double[] randomNum = new double[2];
 
-        randomNum[0] = 2;
-        randomNum[1] = 2;
-        //randomNum[0] = (int) (Math.random() * 6) + 1;
-        //randomNum[1] = (int) (Math.random() * 6) + 1;
+        //randomNum[0] = 2;
+        //randomNum[1] = 2;
+        randomNum[0] = (int) (Math.random() * 6) + 1;
+        randomNum[1] = (int) (Math.random() * 6) + 1;
         System.out.println("First dice number is " + (int) randomNum[0]);
-        System.out.println("Second dice number is " + (int) randomNum[1] + "\n");
+        System.out.println("Second dice number is " + (int) randomNum[1] );
+        System.out.println("Total step: "+((int)(randomNum[0]+randomNum[1]))+"\n");
         return randomNum;
 
     }

@@ -64,8 +64,16 @@ public class Main {
     }
 
     public void setPlayers() {
-        System.out.print("Please input number of players: ");
+        System.out.print("Please input number of players (between 2 and 6): ");
         numOfPlayers = scanner.nextInt();
+
+        while (numOfPlayers < 2 || numOfPlayers > 6) {
+            System.out.print("Error: Number of players must be between 2 and 6. Try again: ");
+            numOfPlayers = scanner.nextInt();
+                        
+        }
+
+
         scanner.nextLine();
         names = new String[numOfPlayers];
         for (int i = 0; i < numOfPlayers; i++) {

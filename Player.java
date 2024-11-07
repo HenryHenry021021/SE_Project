@@ -66,7 +66,7 @@ public class Player {
 
 	 @Override
     public String toString() {
-       return playerName+" "+ property +" "+locationIndex;
+       return playerName+", Property: "+ property +", Location Num: "+(locationIndex+1);
     }
 	
 	

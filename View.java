@@ -7,8 +7,10 @@ public class View {
         this.scanner = scanner;
     }
     public void showLocations(ArrayList<Location> locations) {
+        int index = 1;
         for (Location location : locations) {
-            System.out.println(location);
+            System.out.println(index+". "+location);
+            index++;
         }
     }
 
