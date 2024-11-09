@@ -30,5 +30,10 @@ public class Model {
         public ArrayList<Location> getLocations(){
             return locations;
         }
-
+        public void setLocations(ArrayList<Location> locations){
+            this.locations = locations;
+        }
+        public void setPlayers(ArrayList<Player> players){
+            this.players = players;
+        }
 }

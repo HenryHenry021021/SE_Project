@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class RentLocation extends Location {
 	protected int price;
 	protected int rent;
-	
+
 	public RentLocation(String locationName, int locationIndex, int price, int rent, Scanner scanner) {
 		super(locationName, locationIndex, scanner);
 
@@ -11,15 +11,23 @@ public class RentLocation extends Location {
 		this.rent = rent;
 	}
 
-	
+	public RentLocation(Player owner, String locationName, int locationIndex, int price, int rent, Scanner scanner) {
+		super(locationName, locationIndex, scanner);
+		this.price = price;
+		this.rent = rent;
+		this.owner = owner;
+
+	}
 
 	@Override
 	public String toString() {
-	
-		String printMessage=locationName;
-		/*if(owner!=null){
-			printMessage+=", Owner:"+owner.getPlayerName();
-		}*/
+
+		String printMessage = locationName;
+		/*
+		 * if(owner!=null){
+		 * printMessage+=", Owner:"+owner.getPlayerName();
+		 * }
+		 */
 		return printMessage;
 	}
 
@@ -48,7 +56,7 @@ public class RentLocation extends Location {
 
 			}
 
-		} else if(owner!=player){
+		} else if (owner != player) {
 			System.out.println(
 					locationName + " belongs to " + owner.getPlayerName() + ", you need to pay rent of HKD " + rent);
 			System.out.print("Press Y(Yes) to pay: ");
@@ -68,5 +76,21 @@ public class RentLocation extends Location {
 
 		return "";
 
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setRent(int rent) {
+		this.rent = rent;
+	}
+
+	public int getRent() {
+		return rent;
 	}
 }

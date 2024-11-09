@@ -1,0 +1,222 @@
+[
+    {
+        "date": "default",
+        "data": [
+            {
+                "type": "Special",
+                "labels": "GO"
+            },
+            {
+                "type": "Rent",
+                "labels": "CENTRAL HKD 800",
+                "price": 800,
+                "rent": 90
+            },
+            {
+                "type": "Rent",
+                "labels": "Wan Chai HKD 700",
+                "price": 700,
+                "rent": 65
+            },
+            {
+                "type": "Tax",
+                "labels": "INCOME TAX PAY 10%",
+                "price": 10
+            },
+            {
+                "type": "Rent",
+                "labels": "Stanley HKD 600",
+                "price": 600,
+                "rent": 60
+            },
+            {
+                "type": "In Jail",
+                "labels": "IN JAIL JUST VISIT"
+            },
+            {
+                "type": "Rent",
+                "labels": "Shek O HKD 400",
+                "price": 400,
+                "rent": 10
+            },
+            {
+                "type": "Rent",
+                "labels": "Mong Kok HKD 500",
+                "price": 500,
+                "rent": 40
+            },
+            {
+                "type": "Chance",
+                "labels": "? CHANCE"
+            },
+            {
+                "type": "Rent",
+                "labels": "Tsing Yi HKD 400",
+                "price": 400,
+                "rent": 15
+            },
+            {
+                "type": "Free Parking",
+                "labels": "FREE PARKING"
+            },
+            {
+                "type": "Rent",
+                "labels": "Shatin HKD 700",
+                "price": 700,
+                "rent": 75
+            },
+            {
+                "type": "Chance",
+                "labels": "? CHANCE"
+            },
+            {
+                "type": "Rent",
+                "labels": "Tuen Mun HKD 400",
+                "price": 400,
+                "rent": 20
+            },
+            {
+                "type": "Rent",
+                "labels": "Tai Po HKD 500",
+                "price": 500,
+                "rent": 25
+            },
+            {
+                "type": "GO Jail",
+                "labels": "GO TO JAIL"
+            },
+            {
+                "type": "Rent",
+                "labels": "Sai Kung HKD 400",
+                "price": 400,
+                "rent": 10
+            },
+            {
+                "type": "Rent",
+                "labels": "Yuen Long HKD 400",
+                "price": 400,
+                "rent": 25
+            },
+            {
+                "type": "Chance",
+                "labels": "? CHANCE"
+            },
+            {
+                "type": "Rent",
+                "labels": "Tai O HKD 600",
+                "price": 600,
+                "rent": 25
+            }
+        ]
+    },
+    {
+        "date": "8/11/2024 22:12:00",
+        "data": [
+            {
+                "type": "Special",
+                "labels": "GO testt"
+            },
+            {
+                "type": "Rent",
+                "labels": "CENTRAL HKD 800",
+                "price": 800,
+                "rent": 90
+            },
+            {
+                "type": "Rent",
+                "labels": "Wan Chai HKD 700",
+                "price": 700,
+                "rent": 65
+            },
+            {
+                "type": "Tax",
+                "labels": "INCOME TAX PAY 10%",
+                "price": 10
+            },
+            {
+                "type": "Rent",
+                "labels": "Stanley HKD 600",
+                "price": 600,
+                "rent": 60
+            },
+            {
+                "type": "In Jail",
+                "labels": "IN JAIL JUST VISIT"
+            },
+            {
+                "type": "Rent",
+                "labels": "Shek O HKD 400",
+                "price": 400,
+                "rent": 10
+            },
+            {
+                "type": "Rent",
+                "labels": "Mong Kok HKD 500",
+                "price": 500,
+                "rent": 40
+            },
+            {
+                "type": "Chance",
+                "labels": "? CHANCE"
+            },
+            {
+                "type": "Rent",
+                "labels": "Tsing Yi HKD 400",
+                "price": 400,
+                "rent": 15
+            },
+            {
+                "type": "Free Parking",
+                "labels": "FREE PARKING"
+            },
+            {
+                "type": "Rent",
+                "labels": "Shatin HKD 700",
+                "price": 700,
+                "rent": 75
+            },
+            {
+                "type": "Chance",
+                "labels": "? CHANCE"
+            },
+            {
+                "type": "Rent",
+                "labels": "Tuen Mun HKD 400",
+                "price": 400,
+                "rent": 20
+            },
+            {
+                "type": "Rent",
+                "labels": "Tai Po HKD 500",
+                "price": 500,
+                "rent": 25
+            },
+            {
+                "type": "GO Jail",
+                "labels": "GO TO JAIL"
+            },
+            {
+                "type": "Rent",
+                "labels": "Sai Kung HKD 400",
+                "price": 400,
+                "rent": 10
+            },
+            {
+                "type": "Rent",
+                "labels": "Yuen Long HKD 400",
+                "price": 400,
+                "rent": 25
+            },
+            {
+                "type": "Chance",
+                "labels": "? CHANCE"
+            },
+            {
+                "type": "Rent",
+                "labels": "Tai O HKD 600",
+                "price": 600,
+                "rent": 25
+            }
+        ]
+    }
+]

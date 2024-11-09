@@ -1,0 +1,332 @@
+[
+    {
+        "date": "8/10/2024 23:12:00",
+        "data": [
+            {
+                "type": "Special",
+                "labels": "GO testt"
+            },
+            {
+                "owner": 1,
+                "price": 800,
+                "type": "Rent",
+                "rent": 90,
+                "labels": "CENTRAL HKD 800"
+            },
+            {
+                "owner": 1,
+                "price": 700,
+                "type": "Rent",
+                "rent": 65,
+                "labels": "Wan Chai HKD 700"
+            },
+            {
+                "price": 10,
+                "type": "Tax",
+                "labels": "INCOME TAX PAY 10%"
+            },
+            {
+                "owner": 1,
+                "price": 600,
+                "type": "Rent",
+                "rent": 60,
+                "labels": "Stanley HKD 600"
+            },
+            {
+                "type": "In Jail",
+                "labels": "IN JAIL JUST VISIT"
+            },
+            {
+                "price": 400,
+                "type": "Rent",
+                "rent": 10,
+                "labels": "Shek O HKD 400"
+            },
+            {
+                "price": 500,
+                "type": "Rent",
+                "rent": 40,
+                "labels": "Mong Kok HKD 500"
+            },
+            {
+                "type": "Chance",
+                "labels": "? CHANCE"
+            },
+            {
+                "price": 400,
+                "type": "Rent",
+                "rent": 15,
+                "labels": "Tsing Yi HKD 400"
+            },
+            {
+                "type": "Free Parking",
+                "labels": "FREE PARKING"
+            },
+            {
+                "price": 700,
+                "type": "Rent",
+                "rent": 75,
+                "labels": "Shatin HKD 700"
+            },
+            {
+                "type": "Chance",
+                "labels": "? CHANCE"
+            },
+            {
+                "price": 400,
+                "type": "Rent",
+                "rent": 20,
+                "labels": "Tuen Mun HKD 400"
+            },
+            {
+                "price": 500,
+                "type": "Rent",
+                "rent": 25,
+                "labels": "Tai Po HKD 500"
+            },
+            {
+                "type": "GO Jail",
+                "labels": "GO TO JAIL"
+            },
+            {
+                "price": 400,
+                "type": "Rent",
+                "rent": 10,
+                "labels": "Sai Kung HKD 400"
+            },
+            {
+                "price": 400,
+                "type": "Rent",
+                "rent": 25,
+                "labels": "Yuen Long HKD 400"
+            },
+            {
+                "type": "Chance",
+                "labels": "? CHANCE"
+            },
+            {
+                "price": 600,
+                "type": "Rent",
+                "rent": 25,
+                "labels": "Tai O HKD 600"
+            }
+        ],
+        "player": [
+            {
+                "jailRestirction": 0,
+                "name": "Player 1",
+                "property": 1500,
+                "locationIndex": 0
+            },
+            {
+                "jailRestirction": 0,
+                "name": "Player 2",
+                "property": 1420,
+                "locationIndex": 0
+            },
+            {
+                "jailRestirction": 0,
+                "name": "Player 3",
+                "property": 1420,
+                "locationIndex": 0
+            },
+            {
+                "jailRestirction": 0,
+                "name": "Player 4",
+                "property": 1420,
+                "locationIndex": 0
+            }
+        ]
+    },
+    {
+        "date": "Sat Nov 09 21:01:10 UTC 2024",
+        "data": [
+            {
+                "locationName": "GO testt",
+                "players": [],
+                "playerList": "  ",
+                "locationIndex": 0
+            },
+            {
+                "locationName": "CENTRAL HKD 800",
+                "price": 800,
+                "players": [],
+                "playerList": "  ",
+                "rent": 90,
+                "locationIndex": 1
+            },
+            {
+                "locationName": "Wan Chai HKD 700",
+                "price": 700,
+                "players": [],
+                "playerList": "  ",
+                "rent": 65,
+                "locationIndex": 2
+            },
+            {
+                "locationName": "INCOME TAX PAY 10%",
+                "players": [],
+                "playerList": "  ",
+                "locationIndex": 3
+            },
+            {
+                "locationName": "Stanley HKD 600",
+                "price": 600,
+                "players": [],
+                "playerList": "  ",
+                "rent": 60,
+                "locationIndex": 4
+            },
+            {
+                "locationName": "IN JAIL JUST VISIT",
+                "players": [],
+                "playerList": "  ",
+                "locationIndex": 5
+            },
+            {
+                "locationName": "Shek O HKD 400",
+                "price": 400,
+                "players": [],
+                "playerList": "  ",
+                "rent": 10,
+                "locationIndex": 6
+            },
+            {
+                "locationName": "Mong Kok HKD 500",
+                "price": 500,
+                "players": [],
+                "playerList": "  ",
+                "rent": 40,
+                "locationIndex": 7
+            },
+            {
+                "locationName": "? CHANCE",
+                "players": [],
+                "playerList": "  ",
+                "locationIndex": 8
+            },
+            {
+                "locationName": "Tsing Yi HKD 400",
+                "price": 400,
+                "players": [],
+                "playerList": "  ",
+                "rent": 15,
+                "locationIndex": 9
+            },
+            {
+                "locationName": "FREE PARKING",
+                "players": [
+                    {
+                        "playerName": "Player 1",
+                        "property": 1500,
+                        "locationIndex": 10
+                    },
+                    {
+                        "playerName": "Player 2",
+                        "property": 1420,
+                        "locationIndex": 10
+                    },
+                    {
+                        "playerName": "Player 3",
+                        "property": 1420,
+                        "locationIndex": 10
+                    }
+                ],
+                "playerList": "  Player 1, Player 2, Player 3",
+                "locationIndex": 10
+            },
+            {
+                "locationName": "Shatin HKD 700",
+                "price": 700,
+                "players": [],
+                "playerList": "  ",
+                "rent": 75,
+                "locationIndex": 11
+            },
+            {
+                "locationName": "? CHANCE",
+                "players": [],
+                "playerList": "  ",
+                "locationIndex": 12
+            },
+            {
+                "locationName": "Tuen Mun HKD 400",
+                "price": 400,
+                "players": [],
+                "playerList": "  ",
+                "rent": 20,
+                "locationIndex": 13
+            },
+            {
+                "locationName": "Tai Po HKD 500",
+                "price": 500,
+                "players": [],
+                "playerList": "  ",
+                "rent": 25,
+                "locationIndex": 14
+            },
+            {
+                "locationName": "GO TO JAIL",
+                "players": [{
+                    "playerName": "Player 4",
+                    "property": 1420,
+                    "locationIndex": 15
+                }],
+                "playerList": "  Player 4",
+                "locationIndex": 15
+            },
+            {
+                "locationName": "Sai Kung HKD 400",
+                "price": 400,
+                "players": [],
+                "playerList": "  ",
+                "rent": 10,
+                "locationIndex": 16
+            },
+            {
+                "locationName": "Yuen Long HKD 400",
+                "price": 400,
+                "players": [],
+                "playerList": "  ",
+                "rent": 25,
+                "locationIndex": 17
+            },
+            {
+                "locationName": "? CHANCE",
+                "players": [],
+                "playerList": "  ",
+                "locationIndex": 18
+            },
+            {
+                "locationName": "Tai O HKD 600",
+                "price": 600,
+                "players": [],
+                "playerList": "  ",
+                "rent": 25,
+                "locationIndex": 19
+            }
+        ],
+        "player": [
+            {
+                "playerName": "Player 1",
+                "property": 1500,
+                "locationIndex": 10
+            },
+            {
+                "playerName": "Player 2",
+                "property": 1420,
+                "locationIndex": 10
+            },
+            {
+                "playerName": "Player 3",
+                "property": 1420,
+                "locationIndex": 10
+            },
+            {
+                "playerName": "Player 4",
+                "property": 1420,
+                "locationIndex": 15
+            }
+        ]
+    }
+]
