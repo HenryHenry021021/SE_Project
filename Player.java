@@ -12,7 +12,12 @@ public class Player {
 		this.property=1500;
 		jailRestirction = 0;
 	}
-
+	public Player(String playerName,double property,int locationIndex,int jailRestirction) {
+		this.playerName = playerName;
+		this.locationIndex=locationIndex;
+		this.property=property;
+		this.jailRestirction = jailRestirction;
+	}
 	public int getjailRestirction() {
 		return jailRestirction;
 	}
