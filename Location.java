@@ -1,5 +1,7 @@
 import java.util.*;
 
+import org.json.JSONArray;
+
 public abstract class Location {
 	protected String locationName;
 	protected int locationIndex;

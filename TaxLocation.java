@@ -9,6 +9,9 @@ public class TaxLocation extends Location {
         this.tax = tax / 100;
     }
 
+    public double getTax() {
+        return tax;
+    }
     public String locationFunction(Player player) {
         double calCost = player.getProperty() * tax;
         double lowerThan10 = calCost % 10;

@@ -26,34 +26,40 @@ public class Controller {
         // this.locations = model
     }
 
-    // public void addToLocation(String[] labels, int[] functionData, int[] rent, String[] types, int[] locationIndexs,
-    //         Scanner scanner) {
-    //     for (int i = 0; i < labels.length; i++) {
-    //         if (types[i].equals("Rent")) {
-    //             model.addToLocations(new RentLocation(labels[i], locationIndexs[i], functionData[i], rent[i], scanner));
+    // public void addToLocation(String[] labels, int[] functionData, int[] rent,
+    // String[] types, int[] locationIndexs,
+    // Scanner scanner) {
+    // for (int i = 0; i < labels.length; i++) {
+    // if (types[i].equals("Rent")) {
+    // model.addToLocations(new RentLocation(labels[i], locationIndexs[i],
+    // functionData[i], rent[i], scanner));
 
-    //         } else if (types[i].equals("Special")) {
-    //             model.addToLocations(new GoLocation(labels[i], locationIndexs[i]));
+    // } else if (types[i].equals("Special")) {
+    // model.addToLocations(new GoLocation(labels[i], locationIndexs[i]));
 
-    //         } else if (types[i].equals("Tax")) {
-    //             model.addToLocations(new TaxLocation(labels[i], locationIndexs[i], functionData[i], scanner));
+    // } else if (types[i].equals("Tax")) {
+    // model.addToLocations(new TaxLocation(labels[i], locationIndexs[i],
+    // functionData[i], scanner));
 
-    //         } else if (types[i].equals("Chance")) {
-    //             model.addToLocations(new ChanceLocation(labels[i], locationIndexs[i], scanner));
+    // } else if (types[i].equals("Chance")) {
+    // model.addToLocations(new ChanceLocation(labels[i], locationIndexs[i],
+    // scanner));
 
-    //         } else if (types[i].equals("In Jail")) {
-    //             model.addToLocations(new InJailLocation(labels[i], locationIndexs[i], scanner));
+    // } else if (types[i].equals("In Jail")) {
+    // model.addToLocations(new InJailLocation(labels[i], locationIndexs[i],
+    // scanner));
 
-    //         } else if (types[i].equals("GO Jail")) {
-    //             model.addToLocations(new GoToJailLocation(labels[i], locationIndexs[i], model.getLocations(), scanner));
+    // } else if (types[i].equals("GO Jail")) {
+    // model.addToLocations(new GoToJailLocation(labels[i], locationIndexs[i],
+    // model.getLocations(), scanner));
 
-    //         } else if (types[i].equals("Free Parking")) {
-    //             model.addToLocations(new ParkingLocation(labels[i], locationIndexs[i]));
+    // } else if (types[i].equals("Free Parking")) {
+    // model.addToLocations(new ParkingLocation(labels[i], locationIndexs[i]));
 
-    //         }
-    //     }
+    // }
+    // }
 
-    //     locations = model.getLocations();
+    // locations = model.getLocations();
     // }
     public void start() {
         while (true) {
@@ -99,8 +105,9 @@ public class Controller {
     }
 
     public void chooseCountinueGameBoard() {
-        try {
-            while (true) {
+
+        while (true) {
+            try {
                 List<String> lines = Files.readAllLines(Paths.get("data/Countinue.json"));
                 String reader = String.join("\n", lines);
                 JSONArray JSONGameBoard = new JSONArray(reader.toString());
@@ -126,11 +133,11 @@ public class Controller {
                     locations = model.getLocations();
                     break;
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-
-            System.out.println(e.getMessage());
         }
+
     }
 
     public void viewGameBoard() {
@@ -148,7 +155,7 @@ public class Controller {
                 System.out.println("=============");
                 System.out.print("input menu: ");
                 int choose = scanner.nextInt();
-                locations = getBoard(JSONGameBoard.getJSONObject(choose - 1).getJSONArray("data"));
+                locations = getBoard(JSONGameBoard.getJSONObject(choose - 1).getJSONArray("data"),1);
 
                 System.out.print("Modify the board(0), continue to view (another number):");
 
@@ -160,7 +167,7 @@ public class Controller {
                     int index = scanner.nextInt();
                     scanner.nextLine();
 
-                    modifyGameBoard(JSONGameBoard, index, choose - 1);
+                    modifyGameBoard(JSONGameBoard, index-1, choose - 1);
                     break;
                 }
             }
@@ -185,7 +192,7 @@ public class Controller {
                 System.out.println("=============");
                 System.out.print("input menu: ");
                 int choose = scanner.nextInt();
-                locations = getBoard(JSONGameBoard.getJSONObject(choose - 1).getJSONArray("data"));
+                locations = getBoard(JSONGameBoard.getJSONObject(choose - 1).getJSONArray("data"),0);
 
                 System.out.print("Enter(0), continue to view (another number):");
 
@@ -206,40 +213,52 @@ public class Controller {
         ArrayList<Object> arrays = new ArrayList<Object>(2);
 
         arrays.add(getUser(gameboard.getJSONArray("player")));
-        arrays.add(getBoard(gameboard.getJSONArray("data")));
+        arrays.add(getBoard(gameboard.getJSONArray("data"),0));
 
         return arrays;
     }
 
-    public ArrayList<Location> getBoard(JSONArray JSONlocations) {
+    public ArrayList<Location> getBoard(JSONArray JSONlocations, int viewMode) {
         System.out.println("=============\nGameBoard Info.\n=============");
         ArrayList<Location> specificlocations = new ArrayList<>();
-        for (int i = 0; i < JSONlocations.length(); i++) {
-            JSONObject location = JSONlocations.getJSONObject(i);
+        int[] locationIndexs = { 10, 11, 12, 13, 14, 15,
+                9, 16,
+                8, 17,
+                7, 18,
+                6, 19,
+                5, 4, 3, 2, 1, 0 };
+        for (int i = 0; i < locationIndexs.length; i++) {
+            JSONObject location = JSONlocations.getJSONObject((viewMode == 1) ? i : locationIndexs[i]);
+
             if (location.getString("type").equals("Rent")) {
-                
                 specificlocations.add(
                         (!location.has("owner")
-                                ? (new RentLocation(location.getString("labels"), i, location.getInt("price"),
+                                ? (new RentLocation(location.getString("labels"), locationIndexs[i],
+                                        location.getInt("price"),
                                         location.getInt("rent"), scanner))
-                                : (new RentLocation(players.get(location.getInt("owner")), location.getString("labels"),
-                                        i, location.getInt("price"),
+                                : (new RentLocation(players.get(location.getInt("owner")),
+                                        location.getString("labels"),
+                                        locationIndexs[i], location.getInt("price"),
                                         location.getInt("rent"), scanner))));
 
             } else if (location.getString("type").equals("Special")) {
-                specificlocations.add(new GoLocation(location.getString("labels"), i));
+                specificlocations.add(new GoLocation(location.getString("labels"), locationIndexs[i]));
             } else if (location.getString("type").equals("Tax")) {
                 specificlocations
-                        .add(new TaxLocation(location.getString("labels"), i, location.getInt("price"), scanner));
+                        .add(new TaxLocation(location.getString("labels"), locationIndexs[i], location.getInt("price"),
+                                scanner));
             } else if (location.getString("type").equals("Chance")) {
-                specificlocations.add(new ChanceLocation(location.getString("labels"), i, scanner));
+                specificlocations.add(new ChanceLocation(location.getString("labels"), locationIndexs[i], scanner));
             } else if (location.getString("type").equals("In Jail")) {
-                specificlocations.add(new InJailLocation(location.getString("labels"), i,scanner));
+                specificlocations.add(new InJailLocation(location.getString("labels"), locationIndexs[i], scanner));
             } else if (location.getString("type").equals("GO Jail")) {
-                specificlocations.add(new GoToJailLocation(location.getString("labels"), i, model.getLocations(),scanner));
+                specificlocations
+                        .add(new GoToJailLocation(location.getString("labels"), locationIndexs[i], specificlocations,
+                                scanner));
             } else if (location.getString("type").equals("Free Parking")) {
-                specificlocations.add(new ParkingLocation(location.getString("labels"), i));
+                specificlocations.add(new ParkingLocation(location.getString("labels"), locationIndexs[i]));
             }
+
         }
 
         view.showLocations(specificlocations);
@@ -251,7 +270,7 @@ public class Controller {
         ArrayList<Player> specificUsers = new ArrayList<>();
         for (int i = 0; i < JSONUser.length(); i++) {
             JSONObject user = JSONUser.getJSONObject(i);
-            specificUsers.add(new Player(user.getString("name"), user.getDouble("property"),
+            specificUsers.add(new Player(i, user.getString("playerName"), user.getDouble("property"),
                     user.getInt("locationIndex"), user.getInt("jailRestirction")));
         }
 
@@ -340,7 +359,7 @@ public class Controller {
 
     public JSONObject changeType(JSONArray JSONdata, int indexToModify) {
 
-        ArrayList<Location> current = getBoard(JSONdata);
+        ArrayList<Location> current = getBoard(JSONdata,0);
 
         ArrayList<Location> possible = new ArrayList<>(Arrays.asList(
                 new RentLocation("Rent", 0, 0, 0, scanner),
@@ -379,6 +398,8 @@ public class Controller {
             newLocation.put("labels", rent.getLocationName());
             newLocation.put("price", rent.getPrice());
             newLocation.put("rent", rent.getRent());
+            newLocation.put("type", "Rent");
+
         } else if (choose == 2) {
             current.add(new GoLocation("Special", indexToModify));
             newLocation.put("type", "Special");
@@ -418,44 +439,93 @@ public class Controller {
 
             gameboard.put("date", new Date().toString());
             gameboard.put("player", players);
-            gameboard.put("data", locations);
+
+            JSONArray locationsArray = new JSONArray();
+            for (Location location : locations) {
+                JSONObject locationJSON = new JSONObject();
+
+                if (location instanceof RentLocation) {
+                    locationJSON.put("price", ((RentLocation) location).getPrice());
+                    locationJSON.put("rent", ((RentLocation) location).getRent());
+                    locationJSON.put("labels", location.getLocationName());
+                    locationJSON.put("type", "Rent");
+                    if (((RentLocation) location).getOwner() != null) {
+                        locationJSON.put("owner", ((RentLocation) location).getOwner().getIndex());
+                    }
+
+                } else if (location instanceof GoLocation) {
+                    locationJSON.put("labels", location.getLocationName());
+                    locationJSON.put("type", "Special");
+                    locationJSON.put("players", location.getPlayerList());
+                    locationJSON.put("playerList", location.getPlayerList());
+
+                } else if (location instanceof TaxLocation) {
+                    locationJSON.put("price", ((TaxLocation) location).getTax());
+                    locationJSON.put("labels", location.getLocationName());
+                    locationJSON.put("type", "Tax");
+                    locationJSON.put("players", location.getPlayerList());
+                    locationJSON.put("playerList", location.getPlayerList());
+
+                } else if (location instanceof ChanceLocation) {
+                    locationJSON.put("labels", location.getLocationName());
+                    locationJSON.put("type", "Chance");
+                    locationJSON.put("players", location.getPlayerList());
+                    locationJSON.put("playerList", location.getPlayerList());
+
+                } else if (location instanceof InJailLocation) {
+                    locationJSON.put("labels", location.getLocationName());
+                    locationJSON.put("type", "In Jail");
+                    locationJSON.put("players", location.getPlayerList());
+                    locationJSON.put("playerList", location.getPlayerList());
+
+                } else if (location instanceof GoToJailLocation) {
+                    locationJSON.put("labels", location.getLocationName());
+                    locationJSON.put("type", "GO Jail");
+                    locationJSON.put("players", location.getPlayerList());
+                    locationJSON.put("playerList", location.getPlayerList());
+
+                } else if (location instanceof ParkingLocation) {
+                    locationJSON.put("labels", location.getLocationName());
+                    locationJSON.put("type", "Free Parking");
+                    locationJSON.put("players", location.getPlayerList());
+                    locationJSON.put("playerList", location.getPlayerList());
+                }
+
+                locationsArray.put(locationJSON);
+            }
+            gameboard.put("data", locationsArray);
+
             JSONGameBoard.put(gameboard);
 
-
-
             Files.write(Paths.get("data/Countinue.json"), JSONGameBoard.toString(4).getBytes());
-        
+
             System.out.println("Game saved successfully!");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void view(){
+    public void view() {
         System.out.println("Player list");
         int count = 0;
-        for(Player player:players){
-            System.out.println(count+". "+player.getPlayerName());
-            count ++;
+        for (Player player : players) {
+            System.out.println(count + ". " + player.getPlayerName());
+            count++;
         }
-        System.out.print("View the status of any specific player (enter player index) and all players (no input required)");
+        System.out.print(
+                "View the status of any specific player (enter player index) and all players (no input required)");
         scanner.nextLine();
         String index = scanner.nextLine();
 
-
-        if(!index.isEmpty()){
+        if (!index.isEmpty()) {
             System.out.println(players.get(Integer.valueOf(index)));
 
-        }else{
-            for(Player player:players){
+        } else {
+            for (Player player : players) {
                 System.out.println(player);
             }
         }
     }
-
-
-
-
 
     public void addToPlayer(String[] names) {
         numOfPlayers = names.length;
@@ -682,8 +752,8 @@ public class Controller {
 
         randomNum[0] = 7;
         randomNum[1] = 8;
-        // randomNum[0] = (int) (Math.random() * 6) + 1;
-        // randomNum[1] = (int) (Math.random() * 6) + 1;
+        randomNum[0] = (int) (Math.random() * 4) + 1;
+        randomNum[1] = (int) (Math.random() * 4) + 1;
         System.out.println("First dice number is " + (int) randomNum[0]);
         System.out.println("Second dice number is " + (int) randomNum[1]);
         System.out.println("Total step: " + ((int) (randomNum[0] + randomNum[1])) + "\n");

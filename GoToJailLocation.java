@@ -8,6 +8,15 @@ public class GoToJailLocation extends Location {
         this.locations = locations;
     }
 
+    public GoToJailLocation(String locationName, int locationIndex, Scanner scanner){
+        super(locationName,locationIndex,scanner);
+     
+    }
+
+    public void setLocations(ArrayList<Location> locations) {
+        this.locations = locations;
+    }
+
     public  String locationFunction(Player player){
         System.out.println("Unfortunately, " + player.getPlayerName() + ", you need to go to jail.");
         
@@ -18,8 +27,10 @@ public class GoToJailLocation extends Location {
                 removePlayer(player);
                 location.addPlayer(player);
                 player.setjailRestirction(3);
-                //System.out.println("aaaaaaaaaaa");
+                System.out.println(location.getLocationName());
             }
+            System.out.println(location.getLocationName());
+
         }
         System.out.println("Press enter to continue the game.");
 		scanner.nextLine().toUpperCase();

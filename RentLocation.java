@@ -4,6 +4,8 @@ public class RentLocation extends Location {
 	protected int price;
 	protected int rent;
 
+
+
 	public RentLocation(String locationName, int locationIndex, int price, int rent, Scanner scanner) {
 		super(locationName, locationIndex, scanner);
 
@@ -93,4 +95,9 @@ public class RentLocation extends Location {
 	public int getRent() {
 		return rent;
 	}
+
+	public Player getOwner() {
+		return owner;
+	}
+
 }
