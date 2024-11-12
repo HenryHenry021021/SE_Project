@@ -7,7 +7,7 @@ public class InJailLocation extends Location {
     }
 
     public String locationFunction(Player player) {
-        int jailRestirction = player.getjailRestirction();
+        int jailRestirction = player.getJailRestirction();
         String action = "";
         if(jailRestirction==0){
 

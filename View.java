@@ -105,7 +105,7 @@ public class View {
      */
 
     public String inJailThrow(Player player) {
-        int jailRestirction = player.getjailRestirction();
+        int jailRestirction = player.getJailRestirction();
         String action = "";
         if (jailRestirction == 0) {
             // player.setjailRestirction(3);

@@ -217,6 +217,7 @@ public class Controller {
         for (int i = 0; i < JSONlocations.length(); i++) {
             JSONObject location = JSONlocations.getJSONObject(i);
             if (location.getString("type").equals("Rent")) {
+                
                 specificlocations.add(
                         (!location.has("owner")
                                 ? (new RentLocation(location.getString("labels"), i, location.getInt("price"),
@@ -534,7 +535,7 @@ public class Controller {
                         if (player.getProperty() < 0) {
                             continue;
                         }
-                        jailRestirction = player.getjailRestirction();
+                        jailRestirction = player.getJailRestirction();
                         if (jailRestirction == 0) {
                             view.throwDiceMessage(player.getPlayerName());
                             scanner.nextLine();
@@ -569,11 +570,11 @@ public class Controller {
                                     // Jail.\n\n");
                                     // }else{
                                     System.out.println(player.getPlayerName() + ", you still need to stay in Jail "
-                                            + player.getjailRestirction() + " turn\n\n");
+                                            + player.getJailRestirction() + " turn\n\n");
 
                                     // }
 
-                                    if (player.getjailRestirction() == 0) {
+                                    if (player.getJailRestirction() == 0) {
                                         /*
                                          * System.out.println(
                                          * "This is your last turns in jail, you must pay HKD 150 fine, then you can immediate moves forward."
